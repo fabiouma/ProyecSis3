@@ -11,7 +11,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ProyecSis3.Models.ProyectoSI3Context>(
     options => options.UseSqlServer("data source=DESKTOP-GJPKMKE\\SQLEXPRESS;initial catalog=ProyectoSI3;trusted_connection=true"));
-//Hola commit Andrey
+//Hola commit Andrey 
+//Hola commit Fabio
 
 
 var app = builder.Build();
