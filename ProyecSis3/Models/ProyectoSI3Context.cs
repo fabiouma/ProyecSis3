@@ -44,7 +44,30 @@ namespace ProyecSis3.Models
                 optionsBuilder.UseSqlServer("Server=DESKTOP-GJPKMKE\\SQLEXPRESS;Database=ProyectoSI3;Trusted_Connection=True;");
             }
         }
+        /*
+         * 
+         * 
+        Fabio server:DESKTOP-GJPKMKE\\SQLEXPRESS         ProyectoSI3
+        Junior server:
+        Adrian server:
+        Sebastian server:
 
+        Fabio: Se Cambia el server local y nombre del proyecto 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ */
 
 
 
