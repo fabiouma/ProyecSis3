@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using ProyecSis3.Models;
 using System.Diagnostics;
 
@@ -15,6 +17,9 @@ namespace ProyecSis3.Controllers
 
         public IActionResult Index()
         {
+            
+            
+            //ViewData["IdRol"] = new SelectList(ProyectoSI3Context, "IdRol", "IdRol");//
             return View();
         }
 

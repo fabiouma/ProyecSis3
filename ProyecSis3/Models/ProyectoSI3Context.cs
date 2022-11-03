@@ -374,6 +374,8 @@ namespace ProyecSis3.Models
                 entity.HasKey(e => e.Idrol)
                     .HasName("PK__rol__24C6BB201F03861A");
 
+                //
+
                 entity.ToTable("rol");
 
                 entity.Property(e => e.Idrol)

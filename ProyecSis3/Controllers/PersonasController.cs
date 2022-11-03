@@ -21,6 +21,7 @@ namespace ProyecSis3.Controllers
         // GET: Personas
         public async Task<IActionResult> Index()
         {
+
             var proyectoSI3Context = _context.Personas.Include(p => p.CatCorreoIdCatCorreoNavigation).Include(p => p.CatDireccionIdCatDireccionNavigation).Include(p => p.CatTelefonoIdCatTelefonoNavigation).Include(p => p.UsuarioIdUsuarioNavigation);
             return View(await proyectoSI3Context.ToListAsync());
         }
@@ -54,6 +55,13 @@ namespace ProyecSis3.Controllers
             ViewData["CatDireccionIdCatDireccion"] = new SelectList(_context.CatDireccions, "IdCatDireccion", "IdCatDireccion");
             ViewData["CatTelefonoIdCatTelefono"] = new SelectList(_context.CatTelefonos, "IdCatTelefono", "IdCatTelefono");
             ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario");
+
+            //ViewBag.Idrol = new SelectList(_context.Rols, "Idrol", "Idrol");
+
+            ViewData["RolIdrol"] = new SelectList(_context.Rols, "Idrol", "Nombre");
+
+
+
             return View();
         }
 
@@ -62,9 +70,9 @@ namespace ProyecSis3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPersona,Nombre,Apellido1,Apellido2,UsuarioIdUsuario,CatTelefonoIdCatTelefono,CatCorreoIdCatCorreo,CatDireccionIdCatDireccion")] Persona persona)
+        public async Task<IActionResult> Create(String Nombre, String ApellidoUno, String ApellidoDos, String NombredeUsuario, String Contrasena, String Estado, String fechadecreacion, int idrol, int Telefono, String Correo, String Direccion)
         {
-            if (ModelState.IsValid)
+          /* if (ModelState.IsValid)
             {
                 _context.Add(persona);
                 await _context.SaveChangesAsync();
@@ -73,8 +81,8 @@ namespace ProyecSis3.Controllers
             ViewData["CatCorreoIdCatCorreo"] = new SelectList(_context.CatCorreos, "IdCatCorreo", "IdCatCorreo", persona.CatCorreoIdCatCorreo);
             ViewData["CatDireccionIdCatDireccion"] = new SelectList(_context.CatDireccions, "IdCatDireccion", "IdCatDireccion", persona.CatDireccionIdCatDireccion);
             ViewData["CatTelefonoIdCatTelefono"] = new SelectList(_context.CatTelefonos, "IdCatTelefono", "IdCatTelefono", persona.CatTelefonoIdCatTelefono);
-            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", persona.UsuarioIdUsuario);
-            return View(persona);
+            ViewData["UsuarioIdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", persona.UsuarioIdUsuario);*/
+            return View();
         }
 
         // GET: Personas/Edit/5
@@ -172,14 +180,14 @@ namespace ProyecSis3.Controllers
             {
                 _context.Personas.Remove(persona);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PersonaExists(int id)
         {
-          return _context.Personas.Any(e => e.IdPersona == id);
+            return _context.Personas.Any(e => e.IdPersona == id);
         }
     }
 }
